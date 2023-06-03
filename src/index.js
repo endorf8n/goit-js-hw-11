@@ -1,3 +1,4 @@
+import { createGalleryCards } from './gallery-markup';
 import { PixabayAPI } from './pixabay-api';
 
 const refs = {
@@ -16,7 +17,14 @@ function onSearchFormSubmit(e) {
   pixabayAPI.page = 1;
   pixabayAPI.q = e.currentTarget.elements.searchQuery.value;
 
-  pixabayAPI.fetchImageByQuery().then(data => console.log(data));
+  pixabayAPI
+    .fetchImageByQuery()
+    .then(data => {
+      refs.container.innerHTML = createGalleryCards(data.hits);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
 
 refs.searchForm.addEventListener('submit', onSearchFormSubmit);
