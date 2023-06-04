@@ -8,6 +8,32 @@ img {
   height: auto;
 }
 
+input {
+  padding: 0 5px 0 5px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #22c1c3, #fdbb2d);
+  height: 60px;
+  text-align: center;
+}
+
+.search-form > button {
+  margin-left: 15px;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: aquamarine;
+  border-color: transparent;
+  font-size: 18px;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -31,6 +57,14 @@ img {
 
 .load-more {
   display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: rgb(7, 160, 225);
+  border-color: transparent;
+  font-size: 18px;
 }
 
 .is-hidden {
