@@ -28,3 +28,11 @@ img {
 .info-item {
   text-align: center;
 }
+
+.load-more {
+  display: block;
+}
+
+.is-hidden {
+  display: none;
+}

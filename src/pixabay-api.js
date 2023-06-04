@@ -11,7 +11,7 @@ export class PixabayAPI {
     const searchParams = new URLSearchParams({
       q: this.q,
       page: this.page,
-      per_page: 40,
+      per_page: 8,
       image_type: 'photo',
       orientation: 'horizontal',
       safesearch: true,
