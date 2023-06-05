@@ -11,7 +11,7 @@ export function createGalleryCards(imagesInfo) {
         downloads,
       } = img;
       return `<div class="photo-card"><a class="gallery__link" href="${largeImageURL}">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
+  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
       <b>Likes ${likes}</b>
@@ -25,7 +25,7 @@ export function createGalleryCards(imagesInfo) {
     <p class="info-item">
       <b>Downloads ${downloads}</b>
     </p>
-  </div>
+  </div></a>
 </div>`;
     })
     .join('');
