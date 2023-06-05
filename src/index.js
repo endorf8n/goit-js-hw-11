@@ -23,7 +23,7 @@ async function onSearchFormSubmit(e) {
 
   try {
     const data = await pixabayAPI.fetchImageByQuery();
-    console.log(data);
+    
     if (pixabayAPI.q === '') {
       return Notify.info(
         'Sorry, but the search field cannot be empty, please enter your query'
