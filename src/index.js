@@ -51,12 +51,6 @@ async function onLoadMoreBtnClick() {
   try {
     const data = await pixabayAPI.fetchImageByQuery();
 
-    if (data.hits.length === 0) {
-      refs.loadMoreBtn.classList.add('is-hidden');
-      Notify.info("We're sorry, but you've reached the end of search results.");
-      return;
-    }
-
     refs.container.insertAdjacentHTML(
       'beforeend',
       createGalleryCards(data.hits)
@@ -71,6 +65,12 @@ async function onLoadMoreBtnClick() {
       top: cardHeight * 2,
       behavior: 'smooth',
     });
+
+    if (data.totalHits < pixabayAPI.page * pixabayAPI.per_page) {
+      refs.loadMoreBtn.classList.add('is-hidden');
+      Notify.info("We're sorry, but you've reached the end of search results.");
+      return;
+    }
   } catch (err) {
     Notify.failure('Something went wrong. Please, try later.');
   }

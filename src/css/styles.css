@@ -5,7 +5,7 @@ p {
 img {
   display: block;
   max-width: 100%;
-  height: 240px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -47,7 +47,7 @@ input {
 }
 
 .gallery {
-  max-width: 1280px;
+  max-width: 1200px;
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
@@ -66,13 +66,13 @@ input {
 
 .info {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 .info-item {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
