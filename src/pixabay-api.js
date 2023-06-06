@@ -13,7 +13,7 @@ export class PixabayAPI {
     const searchParams = new URLSearchParams({
       q: this.q,
       page: this.page,
-      per_page: 8,
+      per_page: 40,
       image_type: 'photo',
       orientation: 'horizontal',
       safesearch: true,
@@ -21,9 +21,7 @@ export class PixabayAPI {
     });
 
     const response = await axios.get(`${PixabayAPI.BASE_URL}?${searchParams}`);
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
+
     return response.data;
   }
 }

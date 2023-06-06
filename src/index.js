@@ -35,12 +35,13 @@ async function onSearchFormSubmit(e) {
         'Sorry, there are no images matching your search query. Please try again'
       );
     }
+
     Notify.success(`Hooray! We found ${data.totalHits} images.`);
     refs.container.innerHTML = createGalleryCards(data.hits);
     gallery.refresh();
     refs.loadMoreBtn.classList.remove('is-hidden');
   } catch (err) {
-    console.log(err);
+    Notify.failure('Something went wrong. Please, try later.');
   }
 }
 
@@ -61,8 +62,17 @@ async function onLoadMoreBtnClick() {
       createGalleryCards(data.hits)
     );
     gallery.refresh();
+
+    const { height: cardHeight } = document
+      .querySelector('.gallery')
+      .firstElementChild.getBoundingClientRect();
+
+    window.scrollBy({
+      top: cardHeight * 2,
+      behavior: 'smooth',
+    });
   } catch (err) {
-    console.log(err);
+    Notify.failure('Something went wrong. Please, try later.');
   }
 }
 
