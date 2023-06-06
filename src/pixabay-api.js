@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export class PixabayAPI {
   static BASE_URL = 'https://pixabay.com/api/';
   static API_KEY = '36999899-ea6ffd3591d47a48690e5d95e';
@@ -18,11 +20,10 @@ export class PixabayAPI {
       key: PixabayAPI.API_KEY,
     });
 
-    const response = await fetch(`${PixabayAPI.BASE_URL}?${searchParams}`);
+    const response = await axios.get(`${PixabayAPI.BASE_URL}?${searchParams}`);
     if (!response.ok) {
       throw new Error(response.status);
     }
-    const data = await response.json();
-    return data;
+    return response.data;
   }
 }
