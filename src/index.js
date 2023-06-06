@@ -39,6 +39,11 @@ async function onSearchFormSubmit(e) {
     Notify.success(`Hooray! We found ${data.totalHits} images.`);
     refs.container.innerHTML = createGalleryCards(data.hits);
     gallery.refresh();
+    if (data.totalHits <= pixabayAPI.per_page) {
+      refs.loadMoreBtn.classList.add('is-hidden');
+      return;
+    }
+
     refs.loadMoreBtn.classList.remove('is-hidden');
   } catch (err) {
     Notify.failure('Something went wrong. Please, try later.');
