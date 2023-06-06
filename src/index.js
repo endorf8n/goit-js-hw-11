@@ -19,7 +19,7 @@ async function onSearchFormSubmit(e) {
   e.preventDefault();
 
   pixabayAPI.page = 1;
-  pixabayAPI.q = e.currentTarget.elements.searchQuery.value;
+  pixabayAPI.q = e.currentTarget.elements.searchQuery.value.trim();
 
   try {
     const data = await pixabayAPI.fetchImageByQuery();
