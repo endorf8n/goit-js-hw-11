@@ -10,7 +10,7 @@ export class PixabayAPI {
     this.per_page = 40;
   }
 
-  async fetchImageByQuery() {
+  fetchImageByQuery() {
     const searchParams = new URLSearchParams({
       q: this.q,
       page: this.page,
@@ -21,8 +21,6 @@ export class PixabayAPI {
       key: PixabayAPI.API_KEY,
     });
 
-    const response = await axios.get(`${PixabayAPI.BASE_URL}?${searchParams}`);
-
-    return response.data;
+    return axios.get(`${PixabayAPI.BASE_URL}?${searchParams}`);
   }
 }

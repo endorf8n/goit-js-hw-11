@@ -22,7 +22,7 @@ async function onSearchFormSubmit(e) {
   pixabayAPI.q = e.currentTarget.elements.searchQuery.value.trim();
 
   try {
-    const data = await pixabayAPI.fetchImageByQuery();
+    const { data } = await pixabayAPI.fetchImageByQuery();
 
     if (pixabayAPI.q === '') {
       return Notify.info(
@@ -54,7 +54,7 @@ async function onLoadMoreBtnClick() {
   pixabayAPI.page += 1;
 
   try {
-    const data = await pixabayAPI.fetchImageByQuery();
+    const { data } = await pixabayAPI.fetchImageByQuery();
 
     refs.container.insertAdjacentHTML(
       'beforeend',
@@ -91,7 +91,7 @@ refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 //       pixabayAPI.page += 1;
 
 //       try {
-//         const data = await pixabayAPI.fetchImageByQuery();
+//         const {data} = await pixabayAPI.fetchImageByQuery();
 
 //         refs.container.insertAdjacentHTML(
 //           'beforeend',
@@ -128,7 +128,7 @@ refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 //   pixabayAPI.q = e.currentTarget.elements.searchQuery.value.trim();
 
 //   try {
-//     const data = await pixabayAPI.fetchImageByQuery();
+//     const {data} = await pixabayAPI.fetchImageByQuery();
 
 //     if (pixabayAPI.q === '') {
 //       return Notify.info(
